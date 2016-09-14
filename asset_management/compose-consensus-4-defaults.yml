@@ -2,5 +2,8 @@ vp_auth:
   image:   hyperledger/fabric-peer
   environment:
     - CORE_PEER_ADDRESSAUTODETECT=true
+    - CORE_PEER_PKI_ECA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TCA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TLSCA_PADDR=membersrvc:7054
   command: peer node start
   
