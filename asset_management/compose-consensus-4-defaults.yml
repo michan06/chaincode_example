@@ -1,4 +1,4 @@
-vp:
+vp_auth:
   image:   hyperledger/fabric-peer
   environment:
     - CORE_PEER_ADDRESSAUTODETECT=true
