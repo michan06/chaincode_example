@@ -4,21 +4,14 @@ membersrvc_auth:
     - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
    command: membersrvc
 
-cli:
-  image: hyperledger/fabric-peer
-  command: ./infiniteloop.sh
-  environment:
-    - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
-    - CORE_PEER_ADDRESSAUTODETECT=true
-    - CORE_SECURITY_ENABLED=false
-
 vp0_auth:
   extends:
     file: compose-consensus-4-defaults.yml
     service: vp_auth
   environment:
     - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
-    - CORE_SECURITY_ENABLED=false
+    - CORE_SECURITY_ENABLED=true
+    - CORE_SECURITY_PRIVACY=true
     - CORE_PEER_ID=vp0_auth
     - CORE_SECURITY_ENROLLID=test_vp0
     - CORE_SECURITY_ENROLLSECRET=MwYpmSRjupbT
@@ -29,19 +22,20 @@ vp1_auth:
     service: vp0_auth
   environment:
     - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
-    - CORE_SECURITY_ENABLED=false
+    - CORE_SECURITY_ENABLED=true
+    - CORE_SECURITY_PRIVACY=true
     - CORE_PEER_ID=vp1_auth
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0_auth:7051
     - CORE_SECURITY_ENROLLID=test_vp1
     - CORE_SECURITY_ENROLLSECRET=5wgHK9qqYaPy
-
 
 vp2_auth:
   extends:
     service: vp0_auth
   environment:
     - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
-    - CORE_SECURITY_ENABLED=false
+    - CORE_SECURITY_ENABLED=true
+    - CORE_SECURITY_PRIVACY=true
     - CORE_PEER_ID=vp2_auth
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0_auth:7051
     - CORE_SECURITY_ENROLLID=test_vp2
@@ -53,7 +47,8 @@ vp3_auth:
     service: vp0_auth
   environment:
     - CORE_VM_ENDPOINT=unix:///var/run/docker.sock
-    - CORE_SECURITY_ENABLED=false
+    - CORE_SECURITY_ENABLED=true
+    - CORE_SECURITY_PRIVACY=true
     - CORE_PEER_ID=vp3_auth
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0_auth:7051
     - CORE_SECURITY_ENROLLID=test_vp3
