@@ -15,7 +15,9 @@ vp0:
     - CORE_PEER_ID=vp0
     - CORE_SECURITY_ENROLLID=test_vp0
     - CORE_SECURITY_ENROLLSECRET=MwYpmSRjupbT
-
+    - CORE_PEER_PKI_ECA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TCA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TLSCA_PADDR=membersrvc:7054
 
 vp1:
   extends:
@@ -28,7 +30,9 @@ vp1:
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     - CORE_SECURITY_ENROLLID=test_vp1
     - CORE_SECURITY_ENROLLSECRET=5wgHK9qqYaPy
-
+    - CORE_PEER_PKI_ECA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TCA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TLSCA_PADDR=membersrvc:7054
 vp2:
   extends:
     service: vp0
@@ -40,7 +44,9 @@ vp2:
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     - CORE_SECURITY_ENROLLID=test_vp2
     - CORE_SECURITY_ENROLLSECRET=vQelbRvja7cJ
-
+    - CORE_PEER_PKI_ECA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TCA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TLSCA_PADDR=membersrvc:7054
 
 vp3:
   extends:
@@ -53,3 +59,6 @@ vp3:
     - CORE_PEER_DISCOVERY_ROOTNODE=vp0:7051
     - CORE_SECURITY_ENROLLID=test_vp3
     - CORE_SECURITY_ENROLLSECRET=9LKqKH5peurL
+    - CORE_PEER_PKI_ECA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TCA_PADDR=membersrvc:7054
+    - CORE_PEER_PKI_TLSCA_PADDR=membersrvc:7054
